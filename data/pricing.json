@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "currency": "RUB",
+  "minimum_project_price": 35000,
+  "services": {
+    "telegram_bot_basic": {"name":"Telegram-бот","price":25000,"manual_check":false,"days":3},
+    "telegram_bot_advanced": {"name":"Telegram-бот со сложными сценариями","price_from":40000,"manual_check":true,"manual_reason":"Состав сложных сценариев и ролей требует уточнения.","days":5,"includes":["telegram_bot_basic"]},
+    "max_bot": {"name":"MAX-бот","price_from":30000,"manual_check":true,"manual_reason":"Возможности и сценарии MAX требуют уточнения.","days":4},
+    "telegram_max": {"name":"Telegram-бот","price_from":45000,"manual_check":true,"manual_reason":"Состав общего и платформенного функционала требует уточнения.","days":6,"includes":["telegram_bot_basic","max_bot"]},
+    "ai_basic": {"name":"Подключение AI","price":15000,"manual_check":false,"days":2},
+    "ai_assistant": {"name":"AI-ассистент","price":25000,"manual_check":false,"days":4,"includes":["ai_basic"]},
+    "ai_analytics": {"name":"AI-анализ / классификация / рекомендации","price":20000,"manual_check":false,"days":3},
+    "ai_agent_custom": {"name":"Сложный AI-agent","price_from":50000,"manual_check":true,"timeline_manual_check":true,"manual_reason":"Agentic-сценарий требует технического проектирования.","days":8},
+    "knowledge_base_basic": {"name":"Простая база знаний / FAQ","price":10000,"manual_check":false,"days":2},
+    "rag": {"name":"База знаний","price":20000,"manual_check":false,"days":4,"includes":["knowledge_base_basic"]},
+    "rag_advanced": {"name":"Расширенная/обновляемая база знаний","price_from":30000,"manual_check":true,"manual_reason":"Объём, источники и частота обновления требуют уточнения.","days":6,"includes":["knowledge_base_basic","rag"]},
+    "google_sheets": {"name":"Интеграция с Google Sheets","price":10000,"manual_check":false,"days":2},
+    "google_docs": {"name":"Интеграция с Google Docs","price":10000,"manual_check":false,"days":2},
+    "email": {"name":"Интеграция с email","price":7000,"manual_check":false,"days":1},
+    "crm": {"name":"Интеграция с Bitrix24","price_from":20000,"manual_check":true,"manual_reason":"Необходимо проверить API и сценарий конкретной CRM.","days":4},
+    "external_api": {"name":"Интеграция со сторонним API","price_from":15000,"manual_check":true,"timeline_manual_check":true,"manual_reason":"Необходимо изучить документацию и ограничения API.","days":4},
+    "1c": {"name":"Интеграция с 1С","price_from":30000,"manual_check":true,"timeline_manual_check":true,"manual_reason":"Стоимость зависит от конфигурации 1С и доступных механизмов обмена.","days":6},
+    "wildberries_api": {"name":"Интеграция с Wildberries","price":20000,"manual_check":false,"days":3},
+    "ozon_api": {"name":"Интеграция с Ozon","price":20000,"manual_check":false,"days":3},
+    "marketplaces_wb_ozon": {"name":"Интеграция с Wildberries + Ozon","price":35000,"manual_check":false,"days":5,"includes":["wildberries_api","ozon_api"]},
+    "notifications": {"name":"Уведомления / триггеры","price":7000,"manual_check":false,"days":1},
+    "document_generation": {"name":"Генерация коммерческого предложения","price":10000,"manual_check":false,"days":2},
+    "automatic_reports": {"name":"Автоматические отчёты","price":15000,"manual_check":false,"days":3},
+    "dashboard": {"name":"Аналитический dashboard","price_from":25000,"manual_check":true,"manual_reason":"Состав показателей и визуализаций требует уточнения.","days":5},
+    "scheduler": {"name":"Задачи по расписанию","price":10000,"manual_check":false,"days":2},
+    "complex_business_logic": {"name":"Сложная бизнес-логика","price_from":20000,"manual_check":true,"manual_reason":"Правила, роли и исключения требуют детализации.","days":5},
+    "parsing": {"name":"Парсинг данных","price_from":20000,"manual_check":true,"timeline_manual_check":true,"manual_reason":"Нужно проверить источники, правила сайтов и технические ограничения.","days":5},
+    "deployment": {"name":"Развёртывание и запуск","price":7000,"manual_check":false,"days":1},
+    "testing": {"name":"Тестирование","price":0,"manual_check":false,"days":0},
+    "documentation": {"name":"Базовая документация","price":0,"manual_check":false,"days":0},
+    "custom": {"name":"Индивидуальное AI/Automation решение","price_from":null,"manual_check":true,"timeline_manual_check":true,"manual_reason":"Необходим технический анализ перед оценкой.","days":null}
+  },
+  "bundle_rules": [
+    {"id":"wb_ozon_bundle","requires":["wildberries_api","ozon_api"],"replace_with":"marketplaces_wb_ozon","description":"Пакетная цена Wildberries + Ozon"}
+  ],
+  "timeline_tiers": [
+    {"max_price":60000,"project_level":"SMALL","from_days":5,"to_days":10},
+    {"max_price":120000,"project_level":"MEDIUM","from_days":10,"to_days":15},
+    {"max_price":200000,"project_level":"COMPLEX","from_days":15,"to_days":25},
+    {"max_price":null,"project_level":"CUSTOM","from_days":null,"to_days":null}
+  ],
+  "support_plans": {
+    "basic": {"name":"BASIC SUPPORT","price_month":5000,"description":"Контроль работоспособности, исправление небольших технических проблем, базовая поддержка."},
+    "standard": {"name":"STANDARD SUPPORT","price_month":10000,"description":"Поддержка, небольшие изменения, корректировка сценариев, контроль AI, помощь с эксплуатацией."},
+    "business": {"name":"BUSINESS SUPPORT","price_from_month":20000,"manual_check":true,"description":"Приоритетная поддержка, развитие автоматизации, новые сценарии и доработки."}
+  },
+  "third_party_costs_note": "Стоимость использования сторонних сервисов не включена в стоимость разработки и оплачивается отдельно согласно тарифам соответствующих сервисов. К таким расходам могут относиться API AI-моделей, сервер, телефония, CRM и другие платные сервисы."
+}

@@ -1,0 +1,19 @@
+[Unit]
+Description=AI Presale Assistant Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=user1
+Group=user1
+WorkingDirectory=/opt/ai-presale-bot
+ExecStart=/opt/ai-presale-bot/.venv/bin/python /opt/ai-presale-bot/bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

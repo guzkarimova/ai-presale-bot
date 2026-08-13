@@ -1,0 +1,3 @@
+const companies=['ООО Альфа','ИП Романов','СтройГарант','ЭкоДом','Вектор Групп','Кофе Хаус','Лидер-Авто','МедСервис','ТехноПарк','Феникс','НордВинд','Мир Цветов','Атлант','РиверСофт','ПрофиМаркет','БизнесЛаб','Сфера','Дом Мечты','Квант','ГлобалТрейд'];
+const managers=['Анна Смирнова','Иван Петров','Алексей Орлов']; const stages=['New','Qualification','Proposal','Negotiation','Won']; const temps=['HOT','WARM','COLD']; const slas=['OK','WARNING','BREACHED','CRITICAL'];
+const deals=companies.map((company,i)=>({id:`AI-${1001+i}`,company,manager:managers[i%3],stage:stages[i%5],value:35000+((i*17000)%145000),temperature:temps[i%3],risk:(i*13+18)%91,sla:slas[i%4],activity:`${i+1} ч назад`,next:i%3?'Follow-up сегодня':'Позвонить клиенту',status:i%5===4?'Won':'Active'}));
