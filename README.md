@@ -14,20 +14,13 @@
 ## Архитектура логики агента
 
 ```mermaid
-flowchart TD
-    A[Клиент в Telegram] --> B[Start]
-    B --> C[FSM опрос]
-    C --> D[SQLite]
-    D --> E[Google Sheets]
-    E --> F[AI анализ]
-    F --> G[Выбор сервисов]
-    G --> H[Pricing engine]
-    H --> I[PDF]
-    I --> J[Менеджер]
-
-    F --> K{Данные корректны?}
-    K -->|Да| G
-    K -->|Нет| L[Ручная проверка]
+flowchart LR
+    A[Telegram] --> B[FSM опрос]
+    B --> C[SQLite]
+    C --> D[AI анализ]
+    D --> E[Pricing]
+    E --> F[PDF]
+    F --> G[Менеджер]
 ```
 
 ## Сценарий
